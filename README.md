@@ -16,6 +16,10 @@ Open the command prompt and copy-and-paste the following:
     git clone git://github.com/brymck/pp_yaku_zen.git
     cp pp_yaku_zen/pp_yaku_zen.ppa %AppData%\Microsoft\Addins
 
+If it gives you a "permission denied" message, most likely you still have an
+instance of PowerPoint running. If you can verify that's not the case, there's
+something wacky going on with user permissions.
+
 Open PowerPoint and select the add-in:
 
 * 2007+: Office Button > PowerPoint Options > Add-Ins > Select "PowerPoint
