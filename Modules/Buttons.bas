@@ -1,14 +1,16 @@
 Attribute VB_Name = "Buttons"
 Option Explicit
 
+Private Const AddInName As String = "pp_yaku_zen"
+
 Private Sub AddButtons()
     Dim cb As CommandBar
     
     On Error Resume Next
-    Application.CommandBars("pp_yaku_zen").Delete
+    Application.CommandBars(AddInName).Delete
     On Error GoTo 0
     
-    Set cb = Application.CommandBars.Add("pp_yaku_zen", msoBarTop, , True)
+    Set cb = Application.CommandBars.Add(AddInName, msoBarTop, , True)
 
     With cb.Controls
         ' Add fit to shape
@@ -19,15 +21,14 @@ Private Sub AddButtons()
         End With
         
         ' Add regex search
-        With .Add(msoControlButton)
-            .Caption = "&Regex Search"
-            .OnAction = "RegexSearch"
-            .Style = msoButtonCaption
-        End With
+        ' With .Add(msoControlButton)
+        '     .Caption = "&Regex Search"
+        '     .OnAction = "RegexSearch"
+        '     .Style = msoButtonCaption
+        ' End With
     End With
     cb.Visible = True
 End Sub
-
 
 Public Sub Auto_Open()
     AddButtons

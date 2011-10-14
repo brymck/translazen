@@ -15,14 +15,7 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Private Sub ReplaceAllButton_Click()
-
-End Sub
-
 Private Sub CloseButton_Click()
     Unload Me
 End Sub
 
-Private Sub ReplaceTextBox_Change()
-
-End Sub
