@@ -14,7 +14,7 @@ If you haven't already, sigh as you boot up Windows, then get
 For Windows, open the command prompt and copy-and-paste the following:
 
     git clone git://github.com/brymck/pp_yaku_zen.git
-    copy pp_yaku_zen/pp_yaku_zen.ppa %AppData%\Microsoft\Addins
+    copy /y "pp_yaku_zen\pp_yaku_zen.ppa" "%AppData%\Microsoft\Addins"
 
 For Office for Mac, use this:
 
@@ -39,7 +39,7 @@ Go to the original directory called `pp_yaku_zen` where you first downloaded
 this repository and run:
 
     git pull
-    copy pp_yaku_zen/pp_yaku_zen.ppa %AppData%\Microsoft\Addins
+    copy /y "pp_yaku_zen\pp_yaku_zen.ppa" "%AppData%\Microsoft\Addins"
 
 Or for Macs:
 
