@@ -11,10 +11,15 @@ Installation
 If you haven't already, sigh as you boot up Windows, then get
 [Git](http://help.github.com/win-set-up-git/). Make sure PowerPoint is closed.
 
-Open the command prompt and copy-and-paste the following:
+For Windows, open the command prompt and copy-and-paste the following:
 
     git clone git://github.com/brymck/pp_yaku_zen.git
-    cp pp_yaku_zen/pp_yaku_zen.ppa %AppData%\Microsoft\Addins
+    copy pp_yaku_zen/pp_yaku_zen.ppa %AppData%\Microsoft\Addins
+
+For Office for Mac, use this:
+
+    git clone git://github.com/brymck/pp_yaku_zen.git
+    pp_yaku_zen/install
 
 If it gives you a "permission denied" message, most likely you still have an
 instance of PowerPoint running. If you can verify that's not the case, there's
@@ -22,10 +27,10 @@ something wacky going on with user permissions.
 
 Open PowerPoint and select the add-in:
 
-* 2007+: Office Button > PowerPoint Options > Add-Ins > Select "PowerPoint
-  Add-ins" in the Manage drop-down > Go... > Add New... > Select
+* Windows 2007+: Office Button > PowerPoint Options > Add-Ins > Select
+  "PowerPoint Add-ins" in the Manage drop-down > Go... > Add New... > Select
   pp\_yaku\_zen > OK > Close
-* Earlier: Tools > Add-ins > Add New... > Select pp\_yaku\_zen > OK > Close
+* Earlier/Mac: Tools > Add-ins > Add New... > Select pp\_yaku\_zen > OK > Close
 
 Updating
 --------
@@ -34,7 +39,12 @@ Go to the original directory called `pp_yaku_zen` where you first downloaded
 this repository and run:
 
     git pull
-    cp pp_yaku_zen/pp_yaku_zen.ppa %AppData%\Microsoft\Addins
+    copy pp_yaku_zen/pp_yaku_zen.ppa %AppData%\Microsoft\Addins
+
+Or for Macs:
+
+    git clone git://github.com/brymck/pp_yaku_zen.git
+    pp_yaku_zen/install
 
 Happy (or at least less miserable) editing!
 
