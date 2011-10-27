@@ -43,7 +43,7 @@ this repository and run:
 
 Or for Macs:
 
-    git pull
+    git pull origin master
     install
 
 Happy (or at least less miserable) editing!
