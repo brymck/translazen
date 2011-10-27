@@ -20,6 +20,20 @@ Private Sub AddButtons()
             .Style = msoButtonCaption
         End With
         
+        ' Add previous text
+        With .Add(msoControlButton)
+            .Caption = "&Previous Text"
+            .OnAction = "PreviousText"
+            .Style = msoButtonCaption
+        End With
+        
+        ' Add next text
+        With .Add(msoControlButton)
+            .Caption = "&Next Text"
+            .OnAction = "NextText"
+            .Style = msoButtonCaption
+        End With
+        
         ' Add regex search
         ' With .Add(msoControlButton)
         '     .Caption = "&Regex Search"

@@ -31,10 +31,12 @@ Public Sub NextText(Optional ByVal UseNext As Boolean = True)
         ' Set that we've found a shape
         If shp.Id = CurrentShapeId Then Found = True
         
+        ' If using previous shape, we should have already found it
         If Not UseNext Then
             If Found Then
                 ' Select last text shape if it's available
-                If LastTextShape Is Not Nothing Then LastTextShape.Select
+                On Error Resume Next
+                LastTextShape.Select
                 Exit Sub
             ElseIf HasText(shp) Then
                 ' Set last text shape
@@ -45,5 +47,5 @@ Public Sub NextText(Optional ByVal UseNext As Boolean = True)
 End Sub
 
 Public Sub PreviousText()
-    IncText False
+    NextText False
 End Sub
