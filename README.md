@@ -43,8 +43,8 @@ this repository and run:
 
 Or for Macs:
 
-    git clone git://github.com/brymck/pp_yaku_zen.git
-    pp_yaku_zen/install
+    git pull
+    install
 
 Happy (or at least less miserable) editing!
 
