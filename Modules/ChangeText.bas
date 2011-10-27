@@ -21,19 +21,23 @@ Public Sub NextText(Optional ByVal UseNext As Boolean = True)
     Found = False
     
     For Each shp In CurrentSlide.Shapes
-        If Found And UseNext Then
-            If HasText(shp) Then
-                shp.Select
-                Exit Sub
-            End If
+        ' If we've already matched the shape, continue iterating through shapes until we find one
+        ' with text
+        If Found And UseNext And HasText(shp) Then
+            shp.Select
+            Exit Sub
         End If
         
+        ' Set that we've found a shape
         If shp.Id = CurrentShapeId Then Found = True
         
         If Not UseNext Then
             If Found Then
-                LastTextShape.Select
+                ' Select last text shape if it's available
+                If LastTextShape Is Not Nothing Then LastTextShape.Select
+                Exit Sub
             ElseIf HasText(shp) Then
+                ' Set last text shape
                 Set LastTextShape = shp
             End If
         End If
