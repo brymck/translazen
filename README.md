@@ -38,13 +38,11 @@ Updating
 Go to the original directory called `pp_yaku_zen` where you first downloaded
 this repository and run:
 
-    git pull
-    copy /y "pp_yaku_zen\pp_yaku_zen.ppa" "%AppData%\Microsoft\Addins"
+    update
 
 Or for Macs:
 
-    git pull origin master
-    ./install
+    ./update
 
 Happy (or at least less miserable) editing!
 

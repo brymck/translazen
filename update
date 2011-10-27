@@ -1,0 +1,15 @@
+#!/bin/bash
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+PPA="pp_yaku_zen"
+cd $DIR
+git pull origin master
+
+function install_ppa {
+  if [ -d "/Applications/$1" ]; then
+    sudo cp "$DIR/$PPA.ppa" "/Applications/$1/Office/Add-Ins/"
+  fi
+}
+
+install_ppa "Microsoft Office 2004"
+install_ppa "Microsoft Office 2008"
+install_ppa "Microsoft Office 2011"
