@@ -34,6 +34,20 @@ Private Sub AddButtons()
             .Style = msoButtonCaption
         End With
         
+        ' Export tags
+        With .Add(msoControlButton)
+            .Caption = "&Export Tags"
+            .OnAction = "ExportTags"
+            .Style = msoButtonCaption
+        End With
+        
+        ' Import tags
+        With .Add(msoControlButton)
+            .Caption = "&Import Tags"
+            .OnAction = "ImportTags"
+            .Style = msoButtonCaption
+        End With
+        
         ' Add regex search
         ' With .Add(msoControlButton)
         '     .Caption = "&Regex Search"
