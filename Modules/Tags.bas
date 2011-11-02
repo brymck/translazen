@@ -3,42 +3,49 @@ Option Explicit
 
 Private TagFile As String
 Private Const VimCommand As String = "gvim "
+Private Declare PtrSafe Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, ByVal lpOperation As String, ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+Private Const ReadLine As Integer = -2
 
 Public Sub ExportTags()
     Dim sl As Slide
     Dim shp As Shape
-    Dim SlideIndex As Integer
-    Dim ShapeIndex As Integer
+    Dim BinaryStream As Object
     
-    Open GetTagFile() For Output As #1
-        SlideIndex = 1
-        
+    Set BinaryStream = CreateObject("ADODB.Stream")
+    With BinaryStream
+        .Type = 2
+        .Charset = "utf-8"
+        .Open
         For Each sl In ActiveWindow.Presentation.Slides
-            SlideIndex = SlideIndex + 1
-            ShapeIndex = 1
-            
             For Each shp In sl.Shapes
-                ShapeIndex = ShapeIndex + 1
-                
-                Write #1, SlideIndex, ShapeIndex, shp.TextFrame2.TextRange.Text
+                .WriteText shp.TextFrame2.TextRange.Text
+                .WriteText vbCrLf
             Next shp
         Next sl
-    Close #1
+        .SaveToFile GetTagFile(), 2
+    End With
     
-    Shell GetTagFile(), vbNormalFocus
+    ShellExecute 0, vbNullString, """" & GetTagFile() & """", vbNullString, vbNullString, vbNormalFocus
 End Sub
 
 Public Sub ImportTags()
-    Dim SlideIndex As Integer
-    Dim ShapeIndex As Integer
-    Dim Text As String
+    Dim sl As Slide
+    Dim shp As Shape
+    Dim BinaryStream As Object
+    Dim ReadFile As String
     
-    Open GetTagFile() For Input As #1
-        Do While Not EOF(1)
-            Input #1, SlideIndex, ShapeIndex, Text
-            ActiveWindow.Presentation.Slides(SlideIndex - 1).Shapes(ShapeIndex - 1).TextFrame2.TextRange.Text = Text
-        Loop
-    Close #1
+    Set BinaryStream = CreateObject("ADODB.Stream")
+    With BinaryStream
+        .Type = 2
+        .Charset = "utf-8"
+        .Open
+        .LoadFromFile GetTagFile()
+        For Each sl In ActiveWindow.Presentation.Slides
+            For Each shp In sl.Shapes
+                shp.TextFrame2.TextRange.Text = .ReadText(ReadLine)
+            Next shp
+        Next sl
+    End With
 End Sub
 
 Private Function GetTagFile() As String

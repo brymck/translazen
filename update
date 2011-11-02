@@ -1,6 +1,6 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "$0" )" && pwd )"
-PPA="pp_yaku_zen"
+PPA="translazen"
 cd $DIR
 git pull origin master
 

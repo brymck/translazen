@@ -1,6 +1,6 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "$0" )" && pwd )"
-PPA="pp_yaku_zen"
+PPA="translazen"
 
 function install_ppa {
   if [ -d "/Applications/$1" ]; then
