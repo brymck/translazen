@@ -1,7 +1,7 @@
 Attribute VB_Name = "Buttons"
 Option Explicit
 
-Private Const AddInName As String = "pp_yaku_zen"
+Private Const AddInName As String = "translazen"
 
 Private Sub AddButtons()
     Dim cb As CommandBar
