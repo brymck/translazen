@@ -11,3 +11,5 @@ function install_ppa {
 install_ppa "Microsoft Office 2004"
 install_ppa "Microsoft Office 2008"
 install_ppa "Microsoft Office 2011"
+
+cp *.scpt ~/Library/Scripts
